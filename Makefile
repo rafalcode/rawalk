@@ -7,9 +7,14 @@ SPECLIBS=-lcairo -lm
 SPECINC2=`pkg-config --cflags cairomm-1.0`
 SPECLIBS2=`pkg-config --libs cairomm-1.0`
 
-EXECUTABLES=ra0
+EXECUTABLES=ra0 rawa0
 
+# random number experiment
 ra0: ra0.c
+	${CC} ${CFLAGS} -o $@ $^
+
+# random walk in 2D
+rawa0: rawa0.c
 	${CC} ${CFLAGS} -o $@ $^ ${SPECLIBS}
 
 .PHONY: clean
